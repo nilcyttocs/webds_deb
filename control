@@ -1,0 +1,7 @@
+Package: webds
+Version: 0.0.2-1
+Architecture: armhf
+Section: custom
+Priority: optional
+Description: WebDS extensions for JupyterLab
+Maintainer: Synaptics

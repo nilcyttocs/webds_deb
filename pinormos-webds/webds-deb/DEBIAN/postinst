@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# Post-installation shell script for Debian package
+
+USER=pi
+WORKSPACE=/home/$USER/jupyter/workspace
+SYNADIR=$WORKSPACE/Synaptics
+
+SYSTEMD=/etc/systemd/system
+SERVICE=jupyterlab.service
+
+#find /var/spool/syna/jupyterlab_webds -name webds_* -exec sh -c "yes 2>/dev/null | sudo pip3 install {}" \;
+sudo pip3 install -r /var/spool/syna/jupyterlab_webds/requirements.txt --no-index --find-links /var/spool/syna/jupyterlab_webds
+sudo rm -fr /var/spool/syna/jupyterlab_webds
+
+# Populate documentation inside Synaptics directory within JupyterLab workspace
+sudo unzip /var/spool/syna/jupyterlab_docs/asicprogrammer_html.zip -d $SYNADIR/Documentation/User_Guides/AsicProgrammer
+sudo unzip /var/spool/syna/jupyterlab_docs/touchcomm_html.zip -d $SYNADIR/Documentation/User_Guides/TouchComm
+sudo cp /var/spool/syna/jupyterlab_docs/511-000746-01_RevL_TouchComm.pdf $SYNADIR/Documentation/Specifications/TouchComm_Protocol/.
+sudo cp /var/spool/syna/jupyterlab_docs/readme.md $SYNADIR/.
+sudo ln -sf $SYNADIR/Documentation/User_Guides/AsicProgrammer/index.html $SYNADIR/Documentation/User_Guides/AsicProgrammer/AsicProgrammer_User_Guide
+sudo ln -sf $SYNADIR/Documentation/User_Guides/TouchComm/index.html $SYNADIR/Documentation/User_Guides/TouchComm/TouchComm_User_Guide
+sudo ln -sf $SYNADIR/readme.md $SYNADIR/_links/README
+sudo ln -sf /var/log/syna/update_daemon.log $SYNADIR/_links/Update_Daemon_Log
+sudo rm -fr /var/spool/syna/jupyterlab_docs
+
+# Populate sample code inside Synaptics directory within JupyterLab workspace
+sudo cp /var/spool/syna/jupyterlab_examples/* $SYNADIR/Sample_Code/.
+sudo rm -fr /var/spool/syna/jupyterlab_examples
+
+if [ -f $SYSTEMD/$SERVICE ]; then
+  systemctl is-active $SERVICE > /dev/null 2>&1 && sudo systemctl restart $SERVICE
+fi

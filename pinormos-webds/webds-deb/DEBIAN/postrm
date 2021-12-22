@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Post-removal shell script for Debian package
+
+# Restore /var/spool/syna directory if necessary
+if [ ! -d "/var/spool/syna" ]; then
+  sudo mkdir -p /var/spool/syna
+fi

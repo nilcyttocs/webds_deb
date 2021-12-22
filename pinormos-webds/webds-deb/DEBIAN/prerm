@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Pre-removal shell script for Debian package
+
+SYSTEMD=/etc/systemd/system
+SERVICE=jupyterlab.service
+
+sudo pip3 list | grep webds | awk '{print $1}' | while read line ; do sudo pip3 uninstall -y $line ; done
+
+if [ -f $SYSTEMD/$SERVICE ]; then
+  systemctl is-active $SERVICE > /dev/null 2>&1 && sudo systemctl restart $SERVICE
+fi
