@@ -1,7 +1,7 @@
-webds_api==0.1.9
+webds_api==0.1.10
 webds_doc_launcher==0.1.1
 webds_documentation==0.1.1
-webds_erase_and_program==0.1.7
+webds_erase_and_program==0.1.8
 webds_heatmap==0.1.0
 webds_launcher==0.1.1
 webds_readme==0.1.1
