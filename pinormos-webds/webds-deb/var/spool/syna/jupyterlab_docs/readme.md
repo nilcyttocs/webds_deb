@@ -38,6 +38,7 @@ Presently, WebDS offers the following features.
 - Documentation - This is where you can find the user guides of the TouchComm and AsicProgrammer Python modules.
 - Software Update - This is where you can do PinormOS system update on the Raspberry Pi.
 - Erase and Program - This is where you can do chip reprogram with a .hex file.
+- Heatmap - This is where you can view real-time heatmap plots of delta and raw image reports.
 
 ### Workspace
 
