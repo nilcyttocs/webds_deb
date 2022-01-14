@@ -9,6 +9,8 @@ SYNADIR=$WORKSPACE/Synaptics
 SYSTEMD=/etc/systemd/system
 SERVICE=jupyterlab.service
 
+PYTHONLIBDIR=/usr/local/syna/lib/python
+
 #find /var/spool/syna/jupyterlab_webds -name webds_* -exec sh -c "yes 2>/dev/null | sudo pip3 install {}" \;
 sudo pip3 install -r /var/spool/syna/jupyterlab_webds/requirements.txt --no-index --find-links /var/spool/syna/jupyterlab_webds
 sudo rm -fr /var/spool/syna/jupyterlab_webds
@@ -27,6 +29,11 @@ sudo rm -fr /var/spool/syna/jupyterlab_docs
 # Populate sample code inside Synaptics directory within JupyterLab workspace
 sudo cp /var/spool/syna/jupyterlab_examples/* $SYNADIR/Sample_Code/.
 sudo rm -fr /var/spool/syna/jupyterlab_examples
+
+# Install Plotter Python library
+sudo rm -fr $PYTHONLIBDIR/plotter
+sudo cp -r /var/spool/syna/jupyterlab_plotter_lib $PYTHONLIBDIR/plotter
+sudo rm -fr /var/spool/syna/jupyterlab_plotter_lib
 
 if [ -f $SYSTEMD/$SERVICE ]; then
   systemctl is-active $SERVICE > /dev/null 2>&1 && sudo systemctl restart $SERVICE
