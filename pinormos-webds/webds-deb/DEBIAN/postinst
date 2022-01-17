@@ -20,8 +20,8 @@ sudo unzip /var/spool/syna/jupyterlab_docs/asicprogrammer_html.zip -d $SYNADIR/D
 sudo unzip /var/spool/syna/jupyterlab_docs/touchcomm_html.zip -d $SYNADIR/Documentation/User_Guides/TouchComm
 sudo cp /var/spool/syna/jupyterlab_docs/511-000746-01_RevL_TouchComm.pdf $SYNADIR/Documentation/Specifications/TouchComm_Protocol/.
 sudo cp /var/spool/syna/jupyterlab_docs/readme.md $SYNADIR/.
-sudo ln -sf $SYNADIR/Documentation/User_Guides/AsicProgrammer/index.html $SYNADIR/Documentation/User_Guides/AsicProgrammer/AsicProgrammer_User_Guide
-sudo ln -sf $SYNADIR/Documentation/User_Guides/TouchComm/index.html $SYNADIR/Documentation/User_Guides/TouchComm/TouchComm_User_Guide
+sudo ln -sf $SYNADIR/Documentation/User_Guides/AsicProgrammer/classtouch__comm_1_1_touch_comm.html $SYNADIR/Documentation/User_Guides/AsicProgrammer/AsicProgrammer_User_Guide
+sudo ln -sf $SYNADIR/Documentation/User_Guides/TouchComm/classtouch__comm_1_1_touch_comm.html $SYNADIR/Documentation/User_Guides/TouchComm/TouchComm_User_Guide
 sudo ln -sf $SYNADIR/readme.md $SYNADIR/_links/README
 sudo ln -sf /var/log/syna/update_daemon.log $SYNADIR/_links/Update_Daemon_Log
 sudo rm -fr /var/spool/syna/jupyterlab_docs
