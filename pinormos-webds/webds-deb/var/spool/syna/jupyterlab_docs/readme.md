@@ -27,7 +27,7 @@ On the other hand, you can import the AsicProgrammer Python module as follows.
 ```python
 from programmer import AsicProgrammer
 ```
-The user guides of the TouchComm and AsicProgrammer Python modules containing detailed usage and API information can be found in the Documentation section of the WebDS category.
+The user guides for the TouchComm and AsicProgrammer Python modules containing detailed usage and API information can be found in the Documentation section of the WebDS category.
 
 ### WebDS
 
@@ -35,8 +35,9 @@ The WebDS features are in active development and will continue to be rolled out 
 
 Presently, WebDS offers the following features.
 - README - This document.
-- Documentation - This is where you can find the user guides of the TouchComm and AsicProgrammer Python modules.
-- Software Update - This is where you can do PinormOS system update on the Raspberry Pi.
+- Documentation - This is where you can find the user guides for the TouchComm and AsicProgrammer Python modules.
+- Device Information - This is where you can view basic information about the connected TouchComm device.
+- DSDK Update - This is where you can do PinormOS system update on the Raspberry Pi.
 - ADC Data - This is where you can view real-time heatmap plots of delta and raw image reports.
 - Erase and Program - This is where you can do chip reprogram with a .hex file.
 
@@ -45,7 +46,7 @@ Presently, WebDS offers the following features.
 The JupyterLab workspace is located in /home/pi/jupyter/workspace on the Raspberry Pi. It is shown as the root directory in the file browser in the left sidebar of JupyterLab. In the workspace you can find a Synaptics directory. This is a read-only directory containing useful reference materials. The reference materials include the following.
 
 - TouchComm protocol specification
-- User guides of TouchComm and AsicProgrammer Python modules
+- User guides for TouchComm and AsicProgrammer Python modules
 - This REAME file
 - Various Python sample code
 
@@ -76,6 +77,8 @@ Synaptics/
     |___Sample_Code/
         |
         |___capture_reports.ipynb
+        |
+        |___delta_adc_heatmap.ipynb
         |
         |___erase_and_program.ipynb
         |
