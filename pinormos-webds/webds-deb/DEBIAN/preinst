@@ -6,6 +6,9 @@ USER=pi
 WORKSPACE=/home/$USER/jupyter/workspace
 SYNADIR=$WORKSPACE/Synaptics
 
+# Uninstall WebDS extensions
+pip3 freeze | grep webds | xargs sudo pip3 uninstall -y
+
 sudo rm -fr $SYNADIR
 
 # Set up Synaptics directory within JupyterLab workspace
