@@ -5,7 +5,8 @@
 SYSTEMD=/etc/systemd/system
 SERVICE=jupyterlab.service
 
-sudo pip3 list | grep webds | awk '{print $1}' | while read line ; do sudo pip3 uninstall -y $line ; done
+# Uninstall WebDS extensions
+pip3 freeze | grep webds | xargs -r sudo pip3 uninstall -y
 
 if [ -f $SYSTEMD/$SERVICE ]; then
   systemctl is-active $SERVICE > /dev/null 2>&1 && sudo systemctl restart $SERVICE

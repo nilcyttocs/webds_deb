@@ -7,7 +7,7 @@ WORKSPACE=/home/$USER/jupyter/workspace
 SYNADIR=$WORKSPACE/Synaptics
 
 # Uninstall WebDS extensions
-pip3 freeze | grep webds | xargs sudo pip3 uninstall -y
+pip3 freeze | grep webds | xargs -r sudo pip3 uninstall -y
 
 sudo rm -fr $SYNADIR
 
