@@ -5,6 +5,6 @@ webds_documentation==0.1.1
 webds_heatmap==0.1.1
 webds_launcher==0.1.1
 webds_readme==0.1.1
-webds_reprogram==0.1.9
+webds_reprogram==0.1.10
 webds_software_update==0.1.1
 webds_status==0.1.1
