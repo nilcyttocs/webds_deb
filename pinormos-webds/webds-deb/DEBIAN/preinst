@@ -5,9 +5,17 @@
 USER=pi
 WORKSPACE=/home/$USER/jupyter/workspace
 SYNADIR=$WORKSPACE/Synaptics
+PACKRATDIR=$WORKSPACE/Packrat
 
 # Uninstall WebDS extensions
 pip3 freeze | grep webds | xargs -r sudo pip3 uninstall -y
+
+sudo rm -fr $WORKSPACE/packrat
+
+# Set up Packrat directory within JupyterLab workspace
+if [ ! -d "$PACKRATDIR" ]; then
+  sudo install -d -o $USER -g $USER $PACKRATDIR
+fi
 
 sudo rm -fr $SYNADIR
 
