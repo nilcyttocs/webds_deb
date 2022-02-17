@@ -13,11 +13,11 @@ The **IPython** category is where you can create IPython notebooks (.ipynb files
 
 The **WebDS** category contains the WebDS features added to the JupyterLab environment.
 
-The **Other** category contains various tools including Terminal for CLI operations on the Raspberry Pi and tools for creating text (.txt), Markdown (.md), and Python (.py) files as well as opening a contextual help window for additional information on Python functions.
+The **Other** category contains various tools including Terminal for CLI operations on the DSDK and tools for creating text (.txt), Markdown (.md), and Python (.py) files as well as opening a contextual help window for additional information on Python functions.
 
 ### IPython
 
-From within an IPython notebook or an IPython console, you can access the TouchComm device connected to the Raspberry Pi by making use of the TouchComm and AsicProgrammer Python modules already residing in the Raspbery Pi file system. The TouchComm Python module is for performing operations outlined in the TouchComm protocol specification on the device. The AsicProgrammer Python module is for performing erase and program on the device.
+From within an IPython notebook or an IPython console, you can access the TouchComm device connected to the DSDK by making use of the TouchComm and AsicProgrammer Python modules already residing in the file system on the DSDK. The TouchComm Python module is for performing operations outlined in the TouchComm protocol specification on the device. The AsicProgrammer Python module is for performing erase and program on the device.
 
 The path to the TouchComm and AsicProgrammer Python modules has already been configured in the IPython environment. From within an IPython notebook or an IPython console, you can import the TouchComm Python module as follows.
 ```python
@@ -34,16 +34,18 @@ The user guides for the TouchComm and AsicProgrammer Python modules containing d
 The WebDS features are in active development and will continue to be rolled out as they become available in future PinormOS releases.
 
 Presently, WebDS offers the following features.
-- README - This document.
-- Documentation - This is where you can find the user guides for the TouchComm and AsicProgrammer Python modules.
-- Device Information - This is where you can view basic information about the connected TouchComm device.
-- DSDK Update - This is where you can do PinormOS system update on the Raspberry Pi.
-- ADC Data - This is where you can view real-time heatmap plots of delta and raw image reports.
-- Erase and Program - This is where you can do chip reprogram with a .hex file.
+- README - This document
+- Documentation - Links to DSDK Confluence and Jira pages and user guides for TouchComm and AsicProgrammer Python modules
+- Device Information - Basic information about connected TouchComm device
+- DSDK Update - PinormOS system update on DSDK
+- Connection - Configuration of TouchComm device connection settings
+- Erase and Program - TouchComm device reprogram with .hex files
+- ADC Data - Real-time heatmap and bar plots of delta, raw, and baseline reports
+- Touch Data - Real-time position and trace plots of touch reports
 
 ### Workspace
 
-The JupyterLab workspace is located in /home/pi/jupyter/workspace on the Raspberry Pi. It is shown as the root directory in the file browser in the left sidebar of JupyterLab. In the workspace you can find a Synaptics directory. This is a read-only directory containing useful reference materials. The reference materials include the following.
+The JupyterLab workspace is located at /home/pi/jupyter/workspace on the DSDK. It is shown as the root directory in the file browser in the left sidebar of JupyterLab. In the workspace you can find a Synaptics directory. This is a read-only directory containing useful reference materials. The reference materials include the following.
 
 - TouchComm protocol specification
 - User guides for TouchComm and AsicProgrammer Python modules
@@ -86,3 +88,5 @@ Synaptics/
         |
         |___reflash.ipynb
 ```
+
+The workspace also contains a Packrat directory for the placement of Packrat files for use by WebDS. The structure of the Packrat directory follows that of the Packrat cache. For example, the Packrat files for PR1234567 should be placed in the /Packrat/1234567 directory in the workspace.
