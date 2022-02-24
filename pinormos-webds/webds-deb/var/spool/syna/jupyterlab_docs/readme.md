@@ -4,14 +4,17 @@
 
 WebDS is a web-based implementation of Design Studio. It is integrated into the JupyterLab environment where you accessed this README document.
 
-On the JupyterLab launcher page you can find three categories.
+On the JupyterLab launcher page you can find four categories.
 - IPython
 - WebDS
+- WebDS - Exploration
 - Other
 
 The **IPython** category is where you can create IPython notebooks (.ipynb files) and start IPython console sessions for interactive Python scripting.
 
-The **WebDS** category contains the WebDS features added to the JupyterLab environment.
+The **WebDS** category contains the basic WebDS features added to the JupyterLab environment.
+
+The **WebDS - Exploration** category contains the WebDS features that allow you to explore details about the connected TouchComm device.
 
 The **Other** category contains various tools including Terminal for CLI operations on the DSDK and tools for creating text (.txt), Markdown (.md), and Python (.py) files as well as opening a contextual help window for additional information on Python functions.
 
@@ -31,16 +34,16 @@ The user guides for the TouchComm and AsicProgrammer Python modules containing d
 
 ### WebDS
 
-The WebDS features are in active development and will continue to be rolled out as they become available in future PinormOS releases.
+WebDS features are in active development and will continue to be rolled out as they become available in future PinormOS releases.
 
 Presently, WebDS offers the following features.
 - README - This document
 - Documentation - Links to DSDK Confluence and Jira pages and user guides for TouchComm and AsicProgrammer Python modules
-- Device Information - Basic information about connected TouchComm device
 - DSDK Update - PinormOS system update on DSDK
 - Connection - Configuration of TouchComm device connection settings
 - Erase and Program - TouchComm device reprogram with .hex files
 - ADC Data - Real-time heatmap and bar plots of delta, raw, and baseline reports
+- Device Information - Basic information about connected TouchComm device
 - Touch Data - Real-time position and trace plots of touch reports
 
 ### Workspace
@@ -78,15 +81,17 @@ Synaptics/
     |
     |___Sample_Code/
         |
-        |___capture_reports.ipynb
+        |___adc_plot.ipynb
         |
-        |___delta_adc_heatmap.ipynb
+        |___capture_reports.ipynb
         |
         |___erase_and_program.ipynb
         |
         |___identify.ipynb
         |
         |___reflash.ipynb
+        |
+        |___touch_plot.ipynb
 ```
 
-The workspace also contains a Packrat directory for the placement of Packrat files for use by WebDS. The structure of the Packrat directory follows that of the Packrat cache. For example, the Packrat files for PR1234567 should be placed in the /Packrat/1234567 directory in the workspace.
+The workspace also contains a Packrat directory for the placement of Packrat files for use by WebDS and IPython notebooks. The structure of the Packrat directory follows that of the Packrat cache. For example, the Packrat files for PR1234567 should be placed in the /Packrat/1234567 directory in the workspace.
