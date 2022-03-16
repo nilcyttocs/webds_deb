@@ -89,6 +89,8 @@ Synaptics/
         |
         |___identify.ipynb
         |
+        |___prototyping.ipynb
+        |
         |___reflash.ipynb
         |
         |___touch_plot.ipynb
