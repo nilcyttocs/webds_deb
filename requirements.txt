@@ -1,6 +1,6 @@
 webds_api==0.1.13
 webds_connection==0.1.3
-webds_device_info==0.1.1
+webds_device_info==0.1.2
 webds_doc_launcher==0.1.3
 webds_documentation==0.1.3
 webds_heatmap==0.1.4
