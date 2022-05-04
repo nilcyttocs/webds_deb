@@ -27,7 +27,7 @@ sudo ln -sf /var/log/syna/update_daemon.log $SYNADIR/_links/Update_Daemon_Log
 sudo rm -fr /var/spool/syna/jupyterlab_docs
 
 # Populate sample code inside Synaptics directory within JupyterLab workspace
-sudo cp /var/spool/syna/jupyterlab_examples/* $SYNADIR/Sample_Code/.
+sudo cp -r /var/spool/syna/jupyterlab_examples/* $SYNADIR/Sample_Code/.
 sudo rm -fr /var/spool/syna/jupyterlab_examples
 
 # Install Plotter Python library
