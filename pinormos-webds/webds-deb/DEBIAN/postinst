@@ -39,7 +39,8 @@ sudo rm -fr /var/spool/syna/jupyterlab_plotter_lib
 sudo rm -fr $PYTHONLIBDIR/production_tests/lib
 sudo rm -fr $PYTHONLIBDIR/production_tests/run
 sudo rm -fr $PYTHONLIBDIR/production_tests/wrapper
-sudo cp -nr /var/spool/syna/jupyterlab_production_tests $PYTHONLIBDIR/production_tests
+sudo mkdir -p $PYTHONLIBDIR/production_tests
+sudo cp -nr /var/spool/syna/jupyterlab_production_tests/* $PYTHONLIBDIR/production_tests/.
 sudo rm -fr /var/spool/syna/jupyterlab_production_tests
  
 if [ -f $SYSTEMD/$SERVICE ]; then
