@@ -38,6 +38,7 @@ sudo rm -fr /var/spool/syna/jupyterlab_plotter_lib
 # Install backend package for production tests
 sudo rm -fr $PYTHONLIBDIR/production_tests/lib
 sudo rm -fr $PYTHONLIBDIR/production_tests/run
+sudo rm -fr $PYTHONLIBDIR/production_tests/sets
 sudo rm -fr $PYTHONLIBDIR/production_tests/wrapper
 sudo mkdir -p $PYTHONLIBDIR/production_tests
 sudo cp -nr /var/spool/syna/jupyterlab_production_tests/* $PYTHONLIBDIR/production_tests/.
