@@ -1,5 +1,5 @@
 Package: webds
-Version: 0.0.9-1
+Version: 0.0.10-1
 Architecture: armhf
 Section: custom
 Priority: optional
