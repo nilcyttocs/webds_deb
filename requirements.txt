@@ -1,11 +1,11 @@
-webds_api==0.1.15
+webds_api==0.1.16
 webds_connection==0.1.5
 webds_device_info==0.1.3
 webds_doc_launcher==0.1.4
 webds_documentation==0.1.4
 webds_heatmap==0.1.5
 webds_launcher==0.1.4
-webds_production_tests==0.1.0
+webds_production_tests==0.1.1
 webds_readme==0.1.3
 webds_reprogram==0.1.14
 webds_service==0.1.2
