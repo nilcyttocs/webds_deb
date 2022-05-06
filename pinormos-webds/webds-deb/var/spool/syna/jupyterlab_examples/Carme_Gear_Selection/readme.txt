@@ -7,4 +7,6 @@ The wizard makes use of JupyterDash through 3 separate ports. The following port
   adb forward tcp:8051 tcp:8051
   adb forward tcp:8052 tcp:8052
 
-The wizard is set up to work with PR3696805 for Keys. As such, the wizard requires that the private config JSON file of PR3696805 (renamed as config_private.json) be placed in the Packrat directory in the file browser in the left sidebar (/Packrat/3696805/config_private.json).
+The wizard is set up to work with packrats such as PR3696805 and PR3697820 for Keys from the KEYS-1704 Jira issue and makes use of static/dynamic configuration during the gear selectin process. As such, the wizard requires that the private config JSON file (renamed as config_private.json) of the running firmware be placed in the Packrat directory in the file browser in the left sidebar (e.g. /Packrat/3696805/config_private.json or /Packrat/3697820/config_private.json).
+
+Note: It is recommended to use either Firefox or Sarafi for running this gear selection wizard.

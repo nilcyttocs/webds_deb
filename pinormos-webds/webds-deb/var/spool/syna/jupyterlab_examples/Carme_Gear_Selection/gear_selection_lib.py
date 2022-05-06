@@ -133,16 +133,16 @@ def pre_pdnr_sweep(tc, int_durs, num_gears):
                 break
         log('Received %d reports\n' % (len(raw_reports)))
         for report in raw_reports:
-            converted = list(convert_to_float(report[1][8:-4], 4))
+            converted = list(convert_to_float(report[1][8:], 4))
             #log(report)
             log('Report index %d' % (report[1][0]))
             log('%d data entries' % (len(converted)))
             log(converted)
             log('\n')
             float_reports.append(converted)
-        float_reports[0] = numpy.array(float_reports[0]).reshape(-1, rx_count)
-        float_reports[1] = numpy.array(float_reports[1]).reshape(-1, rx_count)
-        float_reports[2] = numpy.array(float_reports[2]).reshape(-1, 20)
+        float_reports[0] = numpy.array(float_reports[0][0:rx_count*rx_count]).reshape(-1, rx_count)
+        float_reports[1] = numpy.array(float_reports[1][0:rx_count*rx_count]).reshape(-1, rx_count)
+        float_reports[2] = numpy.array(float_reports[2][0:20*20]).reshape(-1, 20)
         config = {
             'updatePdnrConfigData': False,
             'imageRxes': static['imageRxes'],
