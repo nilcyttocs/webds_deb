@@ -7,12 +7,17 @@ import subprocess
 import numpy as np
 from time import sleep
 
-
 sys.path.append("/usr/local/syna/lib/python")
 from touchcomm import TouchComm
 
 PT_ROOT = "/usr/local/syna/lib/python/production_tests/"
 PT_RUN = PT_ROOT + "run/"
+PT_RECIPE = os.path.join(PT_RUN, "Recipe.json")
+PT_LIMITS = os.path.join(PT_RUN, "Recipe.limits.json")
+PT_LOG_DIR = os.path.join(PT_RUN, "log")
+
+sys.path.append(os.path.join(PT_ROOT, "wrapper", "obfucate"))
+from goalkeeper import Goalkeeper
 
 df = None
 tc = None
@@ -125,7 +130,7 @@ class XmlParser():
                 if argument.attrib['name'] == name:
                     value = argument.text
                     break
-            print(test, name, datatype, value)
+            ### print(test, name, datatype, value)
             if datatype == 'int':
                 return [int(value)]
             if datatype == 'int[]':
@@ -138,10 +143,40 @@ class XmlParser():
                 return list(value.split(","))
             elif datatype == 'double[]':
                 return list(map(float, value.split(",")))
+            elif datatype == 'string[][]':
+                return value
             else:
                 return [value]
 
         return None
+
+class RecipeParser():
+    def GetTestLimit(test, name):
+        ### print(test, name)
+        if exists(PT_LIMITS):
+            with open(PT_LIMITS) as json_file:
+                recipe = json.load(json_file)
+                param = recipe['limits'][test]["parameters"][name]
+                value = param["value"]
+                datatype = param["type"]
+                if datatype == 'int':
+                    return [int(value)]
+                if datatype == 'int[]':
+                    return value
+                elif datatype == 'bool':
+                    return int(value)
+                elif datatype == 'double':
+                    return [float(value)]
+                elif datatype == 'string[]':
+                    return value
+                elif datatype == 'double[]':
+                    return value
+                elif datatype == 'string[][]':
+                    return value
+                else:
+                    return [value]
+        return None
+
 
 class TestInfo():
     _instance = None
@@ -149,6 +184,7 @@ class TestInfo():
     _test_name = ""
     _test_result = ""
     _json = None
+    _test_log = ""
 
     def __new__(cls, *args, **kwargs):
         if cls._instance is None:
@@ -156,7 +192,6 @@ class TestInfo():
         return cls._instance
 
     def __init__(self):
-        print("TestsInfo init")
         self.getJson()
 
     def setValue(self, varname, new_value):
@@ -249,7 +284,7 @@ class Comm2DsCore(object):
 
     @staticmethod
     def GetVarValues(packet, block, key):
-        print(packet, block, key)
+        ### print(packet, block, key)
         if block not in packet.parsed:
             return None
         if key not in packet.parsed[block]:
@@ -276,8 +311,8 @@ class Comm2DsCore(object):
 
     @staticmethod
     def GetVarRawValues(packet, block, key):
-        print("RAW", packet, block, key)
-        print(packet.raw)
+        ### print("RAW", packet, block, key)
+        ### print(packet.raw)
         if block not in packet.raw:
             return None
         if key not in packet.raw[block]:
@@ -317,9 +352,9 @@ class Comm2DsCore(object):
 
         protocol = tc.comm.get_interface()
         if protocol == "i2c":
-            subprocess.check_output("sudo echo 2 > /sys/bus/platform/devices/syna_tcm_i2c.0/sysfs/reset", shell=True)
+            Goalkeeper.CallSysCommandFulfil('echo 2 > /sys/bus/platform/devices/syna_tcm_i2c.0/sysfs/reset')
         elif protocol == "spi":
-            subprocess.check_output("sudo echo 2 > /sys/bus/platform/devices/syna_tcm_spi.0/sysfs/reset", shell=True)
+            Goalkeeper.CallSysCommandFulfil('echo 2 > /sys/bus/platform/devices/syna_tcm_spi.0/sysfs/reset')
 
         sleep(1)
 
@@ -337,7 +372,7 @@ class Comm2DsCore(object):
 
     def ReadPacket(packet):
         raw = tc.getPacket()
-        print(raw)
+        ### print(raw)
         Comm2DsCore.UpdatePacket([], packet, raw)
         return 0
 
@@ -366,21 +401,22 @@ def GetInputParam(key):
 
     ### parse from xls file
     if key == "Limits":
-        test_name = info.getValue("test_name")
-        df = pd.read_excel(PT_RUN + "./limits.xls", sheet_name=test_name, header=None)
-        return df
+        value = RecipeParser.GetTestLimit(info.getValue("test_name"), key)
+        df = np.array(value)
+        return pd.DataFrame(value)
 
     ### parse from xml file
-    limit = XmlParser.GetTestLimit(info.getValue("test_name"), key)
+    limit = RecipeParser.GetTestLimit(info.getValue("test_name"), key)
     return limit
 
 def GetInputDimension(key):
     if df is None:
         GetInputParam(key)
     if key == "Limits" and df is not None:
-        return df.shape
+        value = df.shape
+        return value[0], value[1]
     if key == "References":
-        value = XmlParser.GetTestLimit(info.getValue("test_name"), key)
+        value = RecipeParser.GetTestLimit(info.getValue("test_name"), key)
         return [len(value)]
 
 def GetInputIndex(key, row_col):
@@ -389,15 +425,16 @@ def GetInputIndex(key, row_col):
 
 def GetInputParamEx(key, index):
     if key == "Limits" and df is not None:
-        return df.iat[index[0], index[1]]
+        return df[index[0]][index[1]]
     if key == "References":
-        value = XmlParser.GetTestLimit(info.getValue("test_name"), key)
+        value = RecipeParser.GetTestLimit(info.getValue("test_name"), key)
         return value[index]
 
 def CreateMatrix(num_cols, num_rows):
     return [[0 for x in range(num_cols)] for y in range(num_rows)]
 
 def Trace(message):
+    print("\n--- Trace")
     print(message)
 
 def ReportProgress(progress):
@@ -412,16 +449,22 @@ def GetTestResult():
     return result
 
 def SetStringResult(result):
+    print("\n--- Result")
     print(result)
 
 def SetCustomResult(result):
+    print("\n--- CustomResult")
+    print(result)
     pass
 
 def SetSessionVar(session, var):
+    print("\n--- SessionVar")
+    print(session, var)
     pass
 
 def SendMessageBox(message):
-    print("[message]", message)
+    print("\n--- MessageBox")
+    print(message)
 
 def SetTestName(name):
     info.setValue("test_name", name)
