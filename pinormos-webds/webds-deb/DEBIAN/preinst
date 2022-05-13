@@ -2,7 +2,7 @@
 
 # Pre-installation shell script for Debian package
 
-USER=pi
+USER=dsdkuser
 WORKSPACE=/home/$USER/jupyter/workspace
 SYNADIR=$WORKSPACE/Synaptics
 PACKRATDIR=$WORKSPACE/Packrat

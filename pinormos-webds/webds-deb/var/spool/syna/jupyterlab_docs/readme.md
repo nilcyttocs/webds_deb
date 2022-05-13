@@ -49,7 +49,7 @@ Presently, WebDS offers the following features.
 
 ### Workspace
 
-The JupyterLab workspace is located at /home/pi/jupyter/workspace on the DSDK. It is shown as the root directory in the file browser in the left sidebar of JupyterLab. In the workspace you can find a Synaptics directory. This is a read-only directory containing useful reference materials. The reference materials include the following.
+The JupyterLab workspace is located at /home/dsdkuser/jupyter/workspace on the DSDK. It is shown as the root directory in the file browser in the left sidebar of JupyterLab. In the workspace you can find a Synaptics directory. This is a read-only directory containing useful reference materials. The reference materials include the following.
 
 - TouchComm protocol specification
 - User guides for TouchComm and AsicProgrammer Python modules
