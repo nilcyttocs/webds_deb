@@ -195,8 +195,8 @@ def pdnr_sweep(tc, int_durs, num_gears):
                 break
         log('Received %d reports\n' % (len(raw_reports)))
         noise_output[0].append(next(convert_to_float(raw_reports[0][1][4:8], 4)))
-        noise_output[1].append(next(convert_to_float(raw_reports[0][1][4:8], 4)))
-        noise_output[2].append(next(convert_to_float(raw_reports[0][1][4:8], 4)))
+        noise_output[1].append(next(convert_to_float(raw_reports[1][1][4:8], 4)))
+        noise_output[2].append(next(convert_to_float(raw_reports[2][1][4:8], 4)))
     pdnr_index += 1
     log(noise_output)
     return noise_output
