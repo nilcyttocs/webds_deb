@@ -24,6 +24,7 @@ sudo ln -sf $SYNADIR/Documentation/User_Guides/AsicProgrammer/classprogrammer_1_
 sudo ln -sf $SYNADIR/Documentation/User_Guides/TouchComm/classtouch__comm_1_1_touch_comm.html $SYNADIR/Documentation/User_Guides/TouchComm/TouchComm_User_Guide
 sudo ln -sf $SYNADIR/readme.md $SYNADIR/_links/README
 sudo ln -sf /var/log/syna/update_daemon.log $SYNADIR/_links/Update_Daemon_Log
+sudo ln -sf /var/log/syna/production_tests.log $SYNADIR/_links/Production_Tests_Log
 sudo rm -fr /var/spool/syna/jupyterlab_docs
 
 # Populate sample code inside Synaptics directory within JupyterLab workspace
