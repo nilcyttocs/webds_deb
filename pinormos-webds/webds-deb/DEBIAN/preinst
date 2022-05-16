@@ -36,3 +36,9 @@ if [ ! -d "$SYNADIR" ]; then
   sudo install -d -o $USER -g $USER $SYNADIR/Sample_Code/Carme_Gear_Selection/.ipynb_checkpoints
   sudo install -d -o $USER -g $USER $SYNADIR/_links/.ipynb_checkpoints
 fi
+
+sudo rm -fr /var/spool/syna/jupyterlab_webds
+sudo rm -fr /var/spool/syna/jupyterlab_docs
+sudo rm -fr /var/spool/syna/jupyterlab_examples
+sudo rm -fr /var/spool/syna/jupyterlab_plotter_lib
+sudo rm -fr /var/spool/syna/jupyterlab_production_tests

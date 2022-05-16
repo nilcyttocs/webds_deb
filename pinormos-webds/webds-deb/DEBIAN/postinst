@@ -11,30 +11,26 @@ SERVICE=jupyterlab.service
 
 PYTHONLIBDIR=/usr/local/syna/lib/python
 
-#find /var/spool/syna/jupyterlab_webds -name webds_* -exec sh -c "yes 2>/dev/null | sudo pip3 install {}" \;
-sudo pip3 install -r /var/spool/syna/jupyterlab_webds/requirements.txt --no-index --find-links /var/spool/syna/jupyterlab_webds
-sudo rm -fr /var/spool/syna/jupyterlab_webds
+#find /var/spool/syna/webds/wheels -name webds_* -exec sh -c "yes 2>/dev/null | sudo pip3 install {}" \;
+sudo pip3 install -r /var/spool/syna/webds/wheels/requirements.txt --no-index --find-links /var/spool/syna/webds/wheels
 
 # Populate documentation inside Synaptics directory within JupyterLab workspace
-sudo unzip /var/spool/syna/jupyterlab_docs/asicprogrammer_html.zip -d $SYNADIR/Documentation/User_Guides/AsicProgrammer
-sudo unzip /var/spool/syna/jupyterlab_docs/touchcomm_html.zip -d $SYNADIR/Documentation/User_Guides/TouchComm
-sudo cp /var/spool/syna/jupyterlab_docs/511-000746-01_RevL_TouchComm.pdf $SYNADIR/Documentation/Specifications/TouchComm_Protocol/.
-sudo cp /var/spool/syna/jupyterlab_docs/readme.md $SYNADIR/.
+sudo unzip /var/spool/syna/webds/docs/asicprogrammer_html.zip -d $SYNADIR/Documentation/User_Guides/AsicProgrammer
+sudo unzip /var/spool/syna/webds/docs/touchcomm_html.zip -d $SYNADIR/Documentation/User_Guides/TouchComm
+sudo cp /var/spool/syna/webds/docs/511-000746-01_RevL_TouchComm.pdf $SYNADIR/Documentation/Specifications/TouchComm_Protocol/.
+sudo cp /var/spool/syna/webds/docs/readme.md $SYNADIR/.
 sudo ln -sf $SYNADIR/Documentation/User_Guides/AsicProgrammer/classprogrammer_1_1asic__programmer_1_1_asic_programmer.html $SYNADIR/Documentation/User_Guides/AsicProgrammer/AsicProgrammer_User_Guide
 sudo ln -sf $SYNADIR/Documentation/User_Guides/TouchComm/classtouch__comm_1_1_touch_comm.html $SYNADIR/Documentation/User_Guides/TouchComm/TouchComm_User_Guide
 sudo ln -sf $SYNADIR/readme.md $SYNADIR/_links/README
 sudo ln -sf /var/log/syna/update_daemon.log $SYNADIR/_links/Update_Daemon_Log
 sudo ln -sf /var/log/syna/production_tests.log $SYNADIR/_links/Production_Tests_Log
-sudo rm -fr /var/spool/syna/jupyterlab_docs
 
 # Populate sample code inside Synaptics directory within JupyterLab workspace
-sudo cp -r /var/spool/syna/jupyterlab_examples/* $SYNADIR/Sample_Code/.
-sudo rm -fr /var/spool/syna/jupyterlab_examples
+sudo cp -r /var/spool/syna/webds/examples/* $SYNADIR/Sample_Code/.
 
 # Install Plotter Python library
 sudo rm -fr $PYTHONLIBDIR/plotter
-sudo cp -r /var/spool/syna/jupyterlab_plotter_lib $PYTHONLIBDIR/plotter
-sudo rm -fr /var/spool/syna/jupyterlab_plotter_lib
+sudo cp -r /var/spool/syna/webds/plotter_lib $PYTHONLIBDIR/plotter
 
 # Install backend package for production tests
 sudo rm -fr $PYTHONLIBDIR/production_tests/lib
@@ -42,8 +38,7 @@ sudo rm -fr $PYTHONLIBDIR/production_tests/run
 sudo rm -fr $PYTHONLIBDIR/production_tests/sets
 sudo rm -fr $PYTHONLIBDIR/production_tests/wrapper
 sudo mkdir -p $PYTHONLIBDIR/production_tests
-sudo cp -nr /var/spool/syna/jupyterlab_production_tests/* $PYTHONLIBDIR/production_tests/.
-sudo rm -fr /var/spool/syna/jupyterlab_production_tests
+sudo cp -nr /var/spool/syna/webds/production_tests/* $PYTHONLIBDIR/production_tests/.
  
 if [ -f $SYSTEMD/$SERVICE ]; then
   systemctl is-active $SERVICE > /dev/null 2>&1 && sudo systemctl restart $SERVICE
