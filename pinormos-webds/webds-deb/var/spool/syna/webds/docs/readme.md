@@ -44,8 +44,9 @@ Presently, WebDS offers the following features.
 - Erase and Program - TouchComm device reprogram with .hex files
 - ADC Data - Real-time heatmap and bar plots of delta, raw, and baseline reports
 - Device Information - Basic information about connected TouchComm device
-- Production Tests - Execution of production tests on connected TouchComm device
 - Touch Data - Real-time position and trace plots of touch reports
+- Gear Selection - Gear selection tutor for Carme NSM
+- Production Tests - Execution of production tests on connected TouchComm device
 
 ### Workspace
 
@@ -81,6 +82,12 @@ Synaptics/
     |___readme.md
     |
     |___Sample_Code/
+        |
+        |___Carme_Gear_Selection/
+        |   |
+        |   |___readme.txt
+        |   |
+        |   |___wizard.ipynb
         |
         |___adc_plot.ipynb
         |
