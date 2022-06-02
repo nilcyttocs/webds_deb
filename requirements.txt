@@ -1,4 +1,4 @@
-webds_api==0.2.0
+webds_api==0.2.1
 webds_connection==0.1.5
 webds_device_info==0.2.0
 webds_doc_launcher==0.1.4
