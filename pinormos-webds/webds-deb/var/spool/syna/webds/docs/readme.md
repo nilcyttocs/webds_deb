@@ -45,6 +45,7 @@ Presently, WebDS offers the following features.
 - ADC Data - Real-time heatmap and bar plots of delta, raw, and baseline reports
 - Device Information - Basic information about connected TouchComm device
 - Touch Data - Real-time position and trace plots of touch reports
+- Configuration Editor - Direct editing of dynamic and static configurations
 - Gear Selection - Gear selection tutor for Carme NSM
 - Production Tests - Execution of production tests on connected TouchComm device
 
