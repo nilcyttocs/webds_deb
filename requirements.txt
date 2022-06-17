@@ -1,6 +1,6 @@
-webds_api==0.2.1
+webds_api==0.2.2
 webds_config_editor==0.1.1
-webds_connection==0.1.5
+webds_connection==0.1.6
 webds_device_info==0.2.1
 webds_doc_launcher==0.1.5
 webds_documentation==0.1.4
@@ -9,7 +9,7 @@ webds_heatmap==0.1.8
 webds_launcher==0.1.7
 webds_production_tests==0.1.4
 webds_readme==0.1.3
-webds_reprogram==0.1.14
+webds_reprogram==0.1.15
 webds_sensor_mapping==0.1.0
 webds_service==0.2.2
 webds_software_update==0.1.6
