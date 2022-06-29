@@ -47,6 +47,7 @@ Presently, WebDS offers the following features.
 - Touch Data - Real-time position and trace plots of touch reports
 - Configuration Editor - Direct editing of dynamic and static configurations
 - Gear Selection - Gear selection tutor for Carme NSM
+- Sensor Mapping - Specification of mapping between TRx pads and sensors
 - Production Tests - Execution of production tests on connected TouchComm device
 
 ### Workspace
@@ -93,6 +94,8 @@ Synaptics/
         |___adc_plot.ipynb
         |
         |___capture_reports.ipynb
+        |
+        |___data_playback.ipynb
         |
         |___erase_and_program.ipynb
         |
