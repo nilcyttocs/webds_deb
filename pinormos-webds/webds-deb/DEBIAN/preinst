@@ -24,6 +24,7 @@ if [ ! -d "$SYNADIR" ]; then
   sudo mkdir -p $SYNADIR/Documentation/Specifications/TouchComm_Protocol
   sudo mkdir -p $SYNADIR/Documentation/User_Guides/AsicProgrammer
   sudo mkdir -p $SYNADIR/Documentation/User_Guides/TouchComm
+  sudo mkdir -p $SYNADIR/Documentation/WebDS_API
   sudo mkdir -p $SYNADIR/Sample_Code
   sudo mkdir -p $SYNADIR/Sample_Code/Carme_Gear_Selection
   sudo mkdir -p $SYNADIR/_links
@@ -32,6 +33,7 @@ if [ ! -d "$SYNADIR" ]; then
   sudo install -d -o $USER -g $USER $SYNADIR/Documentation/Specifications/TouchComm_Protocol/.ipynb_checkpoints
   sudo install -d -o $USER -g $USER $SYNADIR/Documentation/User_Guides/AsicProgrammer/.ipynb_checkpoints
   sudo install -d -o $USER -g $USER $SYNADIR/Documentation/User_Guides/TouchComm/.ipynb_checkpoints
+  sudo install -d -o $USER -g $USER $SYNADIR/Documentation/WebDS_API/.ipynb_checkpoints
   sudo install -d -o $USER -g $USER $SYNADIR/Sample_Code/.ipynb_checkpoints
   sudo install -d -o $USER -g $USER $SYNADIR/Sample_Code/Carme_Gear_Selection/.ipynb_checkpoints
   sudo install -d -o $USER -g $USER $SYNADIR/_links/.ipynb_checkpoints
