@@ -9,6 +9,7 @@ webds_heatmap==0.1.9
 webds_launcher==0.1.8
 webds_production_tests==0.1.5
 webds_readme==0.1.3
+webds_reflash==0.1.0
 webds_reprogram==0.2.0
 webds_sensor_mapping==0.1.1
 webds_service==0.2.4
