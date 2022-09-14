@@ -41,6 +41,12 @@ sudo rm -fr $PYTHONLIBDIR/production_tests/wrapper
 sudo mkdir -p $PYTHONLIBDIR/production_tests
 sudo cp -nr /var/spool/syna/webds/production_tests/* $PYTHONLIBDIR/production_tests/.
  
+# Remove internal content from external releases
+if grep -q ^VERSION_ID=\".*E\"$ /usr/lib/os-release; then
+  sudo rm -fr $SYNADIR/Documentation/User_Guides/AsicProgrammer
+  sudo rm -fr $SYNADIR/Sample_Code/erase_and_program.ipynb
+fi
+
 if [ -f $SYSTEMD/$SERVICE ]; then
   systemctl is-active $SERVICE > /dev/null 2>&1 && sudo systemctl restart $SERVICE
 fi
