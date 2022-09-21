@@ -25,6 +25,11 @@ sudo ln -sf $SYNADIR/Documentation/User_Guides/TouchComm/classtouch__comm_1_1_to
 sudo ln -sf $SYNADIR/readme.md $SYNADIR/_links/README
 sudo ln -sf /var/log/syna/update_daemon.log $SYNADIR/_links/Update_Daemon_Log
 sudo ln -sf /var/log/syna/production_tests.log $SYNADIR/_links/Production_Tests_Log
+sudo ln -sf /proc/tcm-i2c-log $SYNADIR/_links/I2C_Log
+sudo ln -sf /proc/tcm-spi-log $SYNADIR/_links/SPI_Log
+sudo ln -f /var/log/syslog $SYNADIR/_links/Syslog
+sudo chown root:root $SYNADIR/_links/Syslog
+sudo chmod 444 $SYNADIR/_links/Syslog
 
 # Populate sample code inside Synaptics directory within JupyterLab workspace
 sudo cp -r /var/spool/syna/webds/examples/* $SYNADIR/Sample_Code/.
@@ -43,6 +48,9 @@ sudo cp -nr /var/spool/syna/webds/production_tests/* $PYTHONLIBDIR/production_te
  
 # Remove internal content from external releases
 if grep -q ^VERSION_ID=\".*E\"$ /usr/lib/os-release; then
+  sudo rm -fr $SYNADIR/_links/I2C_Log
+  sudo rm -fr $SYNADIR/_links/SPI_Log
+  sudo rm -fr $SYNADIR/_links/Syslog
   sudo rm -fr $SYNADIR/Documentation/User_Guides/AsicProgrammer
   sudo rm -fr $SYNADIR/Sample_Code/erase_and_program.ipynb
   sudo rm -fr $PYTHONLIBDIR/programmer
