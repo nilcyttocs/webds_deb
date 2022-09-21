@@ -31,7 +31,7 @@ sudo cp -r /var/spool/syna/webds/examples/* $SYNADIR/Sample_Code/.
 
 # Install Plotter Python library
 sudo rm -fr $PYTHONLIBDIR/plotter
-sudo cp -r /var/spool/syna/webds/plotter_lib $PYTHONLIBDIR/plotter
+sudo cp -r /var/spool/syna/webds/plotter $PYTHONLIBDIR/plotter
 
 # Install backend package for production tests
 sudo rm -fr $PYTHONLIBDIR/production_tests/lib
@@ -45,6 +45,8 @@ sudo cp -nr /var/spool/syna/webds/production_tests/* $PYTHONLIBDIR/production_te
 if grep -q ^VERSION_ID=\".*E\"$ /usr/lib/os-release; then
   sudo rm -fr $SYNADIR/Documentation/User_Guides/AsicProgrammer
   sudo rm -fr $SYNADIR/Sample_Code/erase_and_program.ipynb
+  sudo rm -fr $PYTHONLIBDIR/programmer
+  sudo cp -r /var/spool/syna/webds/programmer $PYTHONLIBDIR/programmer
 fi
 
 if [ -f $SYSTEMD/$SERVICE ]; then
