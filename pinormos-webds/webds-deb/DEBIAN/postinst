@@ -34,9 +34,10 @@ sudo chmod 444 $SYNADIR/_links/Syslog
 # Populate sample code inside Synaptics directory within JupyterLab workspace
 sudo cp -r /var/spool/syna/webds/examples/* $SYNADIR/Sample_Code/.
 
-# Install Plotter Python library
+# Install UIKit Python library
 sudo rm -fr $PYTHONLIBDIR/plotter
-sudo cp -r /var/spool/syna/webds/plotter $PYTHONLIBDIR/plotter
+sudo rm -fr $PYTHONLIBDIR/UIKit
+sudo cp -r /var/spool/syna/webds/UIKit $PYTHONLIBDIR/UIKit
 
 # Install backend package for production tests
 sudo rm -fr $PYTHONLIBDIR/production_tests/lib
