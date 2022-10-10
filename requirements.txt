@@ -2,6 +2,7 @@ webds_api==0.2.8
 webds_config_editor==0.3.1
 webds_config_launcher==0.2.1
 webds_connection==0.2.5
+webds_data_collection==0.1.0
 webds_device_info==0.4.1
 webds_doc_launcher==0.3.1
 webds_documentation==0.2.1
