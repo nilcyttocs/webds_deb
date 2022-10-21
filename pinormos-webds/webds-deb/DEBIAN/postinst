@@ -7,7 +7,7 @@ WORKSPACE=/home/$USER/jupyter/workspace
 SYNADIR=$WORKSPACE/Synaptics
 
 SYSTEMD=/etc/systemd/system
-SERVICE=jupyterlab.service
+SERVICE=webds.service
 
 PYTHONLIBDIR=/usr/local/syna/lib/python
 
@@ -27,7 +27,7 @@ sudo ln -sf /var/log/syna/update_daemon.log $SYNADIR/_links/Update_Daemon_Log
 sudo ln -sf /var/log/syna/production_tests.log $SYNADIR/_links/Production_Tests_Log
 sudo ln -sf /proc/tcm-i2c-log $SYNADIR/_links/I2C_Log
 sudo ln -sf /proc/tcm-spi-log $SYNADIR/_links/SPI_Log
-sudo ln -f /var/log/syslog $SYNADIR/_links/Syslog
+sudo ln -sf /var/log/syslog $SYNADIR/_links/Syslog
 sudo chown root:root $SYNADIR/_links/Syslog
 sudo chmod 444 $SYNADIR/_links/Syslog
 
@@ -58,6 +58,10 @@ if grep -q ^VERSION_ID=\".*E\"$ /usr/lib/os-release; then
   sudo cp -r /var/spool/syna/webds/programmer $PYTHONLIBDIR/programmer
 fi
 
-if [ -f $SYSTEMD/$SERVICE ]; then
-  systemctl is-active $SERVICE > /dev/null 2>&1 && sudo systemctl restart $SERVICE
+# Start and enable WebDS service
+sudo systemctl start $SERVICE
+sudo systemctl enable $SERVICE
+
+if [ -f $SYSTEMD/jupyterlab.service ]; then
+  systemctl is-active jupyterlab.service > /dev/null 2>&1 && sudo systemctl restart jupyterlab.service
 fi

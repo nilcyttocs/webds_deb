@@ -3,11 +3,17 @@
 # Pre-removal shell script for Debian package
 
 SYSTEMD=/etc/systemd/system
-SERVICE=jupyterlab.service
+SERVICE=webds.service
 
 # Uninstall WebDS extensions
 pip3 freeze | grep webds | xargs -r sudo pip3 uninstall -y
 
+# Stop and disable WebDS service
 if [ -f $SYSTEMD/$SERVICE ]; then
-  systemctl is-active $SERVICE > /dev/null 2>&1 && sudo systemctl restart $SERVICE
+  systemctl is-active $SERVICE > /dev/null 2>&1 && sudo systemctl stop $SERVICE
+  sudo systemctl disable $SERVICE
+fi
+
+if [ -f $SYSTEMD/jupyterlab.service ]; then
+  systemctl is-active jupyterlab.service > /dev/null 2>&1 && sudo systemctl restart jupyterlab.service
 fi

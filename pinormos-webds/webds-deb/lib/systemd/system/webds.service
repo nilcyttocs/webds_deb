@@ -1,0 +1,10 @@
+[Unit]
+Description=WebDS Environment Setup
+After=syslog.target network.target
+
+[Service]
+Type=oneshot
+ExecStart=chmod 644 /var/log/syslog
+
+[Install]
+WantedBy=multi-user.target

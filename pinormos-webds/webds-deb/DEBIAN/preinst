@@ -7,6 +7,15 @@ WORKSPACE=/home/$USER/jupyter/workspace
 SYNADIR=$WORKSPACE/Synaptics
 PACKRATDIR=$WORKSPACE/Packrat
 
+SYSTEMD=/etc/systemd/system
+SERVICE=webds.service
+
+# Stop and disable WebDS service
+if [ -f $SYSTEMD/$SERVICE ]; then
+  systemctl is-active $SERVICE > /dev/null 2>&1 && sudo systemctl stop $SERVICE
+  sudo systemctl disable $SERVICE
+fi
+
 # Uninstall WebDS extensions
 pip3 freeze | grep webds | xargs -r sudo pip3 uninstall -y
 
