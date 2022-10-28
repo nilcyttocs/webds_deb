@@ -9,6 +9,8 @@ SYNADIR=$WORKSPACE/Synaptics
 SYSTEMD=/etc/systemd/system
 SERVICE=webds.service
 
+sudo chown root:root /lib/systemd/system/$SERVICE
+
 PYTHONLIBDIR=/usr/local/syna/lib/python
 
 #find /var/spool/syna/webds/wheels -name webds_* -exec sh -c "yes 2>/dev/null | sudo pip3 install {}" \;
