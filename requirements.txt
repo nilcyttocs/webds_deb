@@ -1,5 +1,5 @@
 webds_api==0.3.0
-webds_config_editor==0.5.0
+webds_config_editor==0.5.1
 webds_config_launcher==0.3.0
 webds_connection==0.3.0
 webds_data_collection==0.3.0
@@ -9,8 +9,9 @@ webds_documentation==0.3.0
 webds_gear_selection==0.5.0
 webds_guided_config==0.4.0
 webds_heatmap==0.5.0
+webds_integration_duration==0.1.0
 webds_launcher==0.4.0
-webds_production_tests==0.5.0
+webds_production_tests==0.5.1
 webds_readme==0.3.0
 webds_reflash==0.3.0
 webds_reprogram==0.3.0
