@@ -2,7 +2,7 @@
 
 # Pre-removal shell script for Debian package
 
-SYSTEMD=/etc/systemd/system
+SYSTEMD=/etc/systemd/system/multi-user.target.wants
 SERVICE=webds.service
 
 # Uninstall WebDS extensions

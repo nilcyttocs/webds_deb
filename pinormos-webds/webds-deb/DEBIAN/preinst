@@ -7,7 +7,7 @@ WORKSPACE=/home/$USER/jupyter/workspace
 SYNADIR=$WORKSPACE/Synaptics
 PACKRATDIR=$WORKSPACE/Packrat
 
-SYSTEMD=/etc/systemd/system
+SYSTEMD=/etc/systemd/system/multi-user.target.wants
 SERVICE=webds.service
 
 # Stop and disable WebDS service
