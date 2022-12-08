@@ -19,5 +19,6 @@ webds_sensor_mapping==0.3.2
 webds_service==0.7.0
 webds_software_update==0.7.0
 webds_status==0.5.0
+webds_test_viewer==0.1.0
 webds_touch==0.6.0
 webds_tutor_initial_setup==0.3.2
