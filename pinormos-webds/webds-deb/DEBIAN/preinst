@@ -6,6 +6,7 @@ USER=dsdkuser
 WORKSPACE=/home/$USER/jupyter/workspace
 SYNADIR=$WORKSPACE/Synaptics
 PACKRATDIR=$WORKSPACE/Packrat
+STASHDIR=/var/spool/syna/data_collection/testrail
 
 SYSTEMD=/etc/systemd/system/multi-user.target.wants
 SERVICE=webds.service
@@ -46,4 +47,9 @@ if [ ! -d "$SYNADIR" ]; then
   sudo install -d -o $USER -g $USER $SYNADIR/Sample_Code/.ipynb_checkpoints
   sudo install -d -o $USER -g $USER $SYNADIR/Sample_Code/Carme_Gear_Selection/.ipynb_checkpoints
   sudo install -d -o $USER -g $USER $SYNADIR/_links/.ipynb_checkpoints
+fi
+
+# Set up data collection stash directory
+if [ ! -d "$STASHDIR" ]; then
+  sudo mkdir -p $STASHDIR
 fi
