@@ -5,11 +5,12 @@
 WebDS is a web-based implementation of Design Studio. It is integrated into the JupyterLab environment where you accessed this README document.
 
 On the JupyterLab launcher page you can the following categories.
+
 - **Favourites**&nbsp;&nbsp;&nbsp;Individual widgets from the other categories can be added to the Favourites category by right-clicking on the widget to add. Widgets can be removed from the Favourites category also by right-clicking on the widget to remove.
 - **Firmware Install**&nbsp;&nbsp;&nbsp;This category contains widgets for updating the firmware running on the connected TouchComm device.
-- **Touch - Assessment**&nbsp;&nbsp;&nbsp; This category contains widgets for exploring and assessing details about the connected TouchComm device.
-- **Touch - Configuration**&nbsp;&nbsp;&nbsp; This category contains widgets for updating various configuration settings on the connected TouchComm device.
-- **Touch - Development**&nbsp;&nbsp;&nbsp; This category contains widgets for performing development and evaluation tasks and include those for creating IPython notebooks (.ipynb files) and starting Ipython console sessions for interactive Python scripting.
+- **Device - Assessment**&nbsp;&nbsp;&nbsp; This category contains widgets for exploring and assessing details about the connected TouchComm device.
+- **Device - Configuration**&nbsp;&nbsp;&nbsp; This category contains widgets for updating various configuration settings on the connected TouchComm device.
+- **Device - Development**&nbsp;&nbsp;&nbsp; This category contains widgets for performing development and evaluation tasks and include those for creating IPython notebooks (.ipynb files) and starting Ipython console sessions for interactive Python scripting.
 - **DSDK - Applications**&nbsp;&nbsp;&nbsp; This category contains widgets for accessing reference documentation and performing various setup and configuration tasks on the DSDK.
 
 ### IPython
@@ -17,15 +18,18 @@ On the JupyterLab launcher page you can the following categories.
 From within an IPython notebook or an IPython console, you can access the TouchComm device connected to the DSDK by making use of the TouchComm and AsicProgrammer Python modules already residing in the file system on the DSDK. The TouchComm Python module is for performing operations outlined in the TouchComm protocol specification on the device. The AsicProgrammer Python module is for performing erase and program on the device.
 
 The path to the TouchComm and AsicProgrammer Python modules has already been configured in the IPython environment. From within an IPython notebook or an IPython console, you can import the TouchComm Python module as follows.
+
 ```python
 from touchcomm import TouchComm
 ```
+
 On the other hand, you can import the AsicProgrammer Python module as follows.
+
 ```python
 from programmer import AsicProgrammer
 ```
-The user guides for the TouchComm and AsicProgrammer Python modules containing detailed usage and API information can be found in the *Documentation* section of the *DSDK - Applications* category.
 
+The user guides for the TouchComm and AsicProgrammer Python modules containing detailed usage and API information can be found in the _Documentation_ section of the _DSDK - Applications_ category.
 
 ### Workspace
 
@@ -37,6 +41,7 @@ The JupyterLab workspace is located at /home/dsdkuser/jupyter/workspace on the D
 - Various IPython sample code
 
 The structure of the Synaptics directory is as follows.
+
 ```
 Synaptics/
     |
@@ -94,4 +99,5 @@ The workspace also contains a Packrat directory for the placement of Packrat fil
 ---
 
 #### Note
+
 The AsicProgrammer Python module and its associated user guide are available only in the internal version of WebDS.
