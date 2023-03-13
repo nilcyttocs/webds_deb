@@ -1,4 +1,4 @@
-webds_api==0.4.3
+webds_api==0.4.4
 webds_config_editor==0.8.1
 webds_config_launcher==0.6.1
 webds_connection==0.4.2
@@ -14,7 +14,7 @@ webds_launcher==0.8.1
 webds_production_tests==0.9.1
 webds_readme==0.5.0
 webds_reflash==0.4.1
-webds_register_map==0.2.0
+webds_register_map==0.2.1
 webds_reprogram==0.4.1
 webds_sensor_mapping==0.4.2
 webds_service==0.10.0
