@@ -11,6 +11,7 @@ webds_guided_config==0.8.1
 webds_heatmap==0.8.1
 webds_integration_duration==0.5.1
 webds_launcher==0.8.1
+webds_local_dimming==0.1.0
 webds_production_tests==0.9.1
 webds_readme==0.5.0
 webds_reflash==0.4.1
