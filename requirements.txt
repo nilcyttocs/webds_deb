@@ -1,8 +1,8 @@
-webds_api==0.4.6
+webds_api==0.4.7
 webds_config_editor==0.8.1
 webds_config_launcher==0.6.1
 webds_connection==0.4.2
-webds_data_collection==0.8.1
+webds_data_collection==0.8.2
 webds_device_info==0.9.1
 webds_doc_launcher==0.7.0
 webds_documentation==0.6.0
@@ -16,10 +16,11 @@ webds_readme==0.5.0
 webds_reflash==0.4.2
 webds_register_map==0.4.0
 webds_reprogram==0.4.2
-webds_sensor_mapping==0.4.2
-webds_service==0.10.2
+webds_sensor_mapping==0.4.3
+webds_service==0.10.3
 webds_software_update==0.9.0
-webds_status==0.7.0
+webds_status==0.7.1
 webds_test_viewer==0.3.1
 webds_touch==0.8.1
+webds_trace_and_log==0.1.0
 webds_tutor_initial_setup==0.4.2
