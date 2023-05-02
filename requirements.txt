@@ -1,4 +1,4 @@
-webds_api==0.4.8
+webds_api==0.4.9
 webds_config_editor==0.8.2
 webds_config_launcher==0.6.1
 webds_connection==0.4.3
