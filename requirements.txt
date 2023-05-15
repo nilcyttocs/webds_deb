@@ -1,4 +1,4 @@
-webds_api==0.4.10
+webds_api==0.4.11
 webds_config_editor==0.8.2
 webds_config_launcher==0.6.1
 webds_connection==0.4.3
@@ -9,7 +9,8 @@ webds_documentation==0.6.0
 webds_gear_selection==0.9.0
 webds_guided_config==0.8.2
 webds_heatmap==0.8.2
-webds_integration_duration==0.5.2
+webds_hybrid_analog==0.1.0
+webds_integration_duration==0.6.0
 webds_launcher==0.9.0
 webds_production_tests==0.9.2
 webds_readme==0.5.0
@@ -23,4 +24,4 @@ webds_status==0.8.0
 webds_test_viewer==0.3.2
 webds_touch==0.8.2
 webds_trace_and_log==0.1.1
-webds_tutor_initial_setup==0.4.4
+webds_tutor_initial_setup==0.4.5
