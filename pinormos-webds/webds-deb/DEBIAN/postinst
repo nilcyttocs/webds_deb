@@ -50,7 +50,13 @@ sudo rm -fr $PYTHONLIBDIR/production_tests/run
 sudo rm -fr $PYTHONLIBDIR/production_tests/wrapper
 sudo mkdir -p $PYTHONLIBDIR/production_tests
 sudo cp -nr /var/spool/syna/webds/production_tests/* $PYTHONLIBDIR/production_tests/.
- 
+sudo rm -fr $PYTHONLIBDIR/production_tests_v2/lib
+sudo rm -fr $PYTHONLIBDIR/production_tests_v2/run
+#sudo rm -fr $PYTHONLIBDIR/production_tests_v2/sets
+sudo rm -fr $PYTHONLIBDIR/production_tests_v2/wrapper
+sudo mkdir -p $PYTHONLIBDIR/production_tests_v2
+sudo cp -nr /var/spool/syna/webds/production_tests_v2/* $PYTHONLIBDIR/production_tests_v2/.
+
 # Install backend files for register map
 sudo mkdir -p $REGISTERMAPDIR
 sudo cp -r /var/spool/syna/webds/register_map/* $REGISTERMAPDIR/.
