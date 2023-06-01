@@ -18,6 +18,20 @@ REGISTERMAPDIR=/var/cache/syna/register_map
 #find /var/spool/syna/webds/wheels -name webds_* -exec sh -c "yes 2>/dev/null | sudo pip3 install {}" \;
 sudo pip3 install -r /var/spool/syna/webds/wheels/requirements.txt --no-index --find-links /var/spool/syna/webds/wheels
 
+for file in /var/spool/syna/webds/third_party_wheels/*.whl; do
+    package_name=$(basename $file .whl)
+    package_name=$(echo $package_name | cut -d"-" -f1)
+    if ! sudo -u $USER pip3 show $package_name >/dev/null 2>&1; then
+      sudo -u $USER pip3 install $file
+    else
+      echo "Package $package_name is already installed. Skipping..."
+    fi
+done
+
+if ! id -nG $USER | grep -qw i2c; then
+    sudo adduser $USER i2c
+fi
+
 # Populate documentation inside Synaptics directory within JupyterLab workspace
 sudo unzip /var/spool/syna/webds/docs/asicprogrammer_html.zip -d $SYNADIR/Documentation/User_Guides/AsicProgrammer
 sudo unzip /var/spool/syna/webds/docs/touchcomm_html.zip -d $SYNADIR/Documentation/User_Guides/TouchComm
