@@ -32,6 +32,11 @@ if ! id -nG $USER | grep -qw i2c; then
     sudo adduser $USER i2c
 fi
 
+if [ -d /var/www/html/update_status/build ]; then
+  sudo rm -rf /var/www/html/update_status/build
+  sudo cp -r /var/spool/syna/webds/update_status/build /var/www/html/update_status/build
+fi
+
 # Populate documentation inside Synaptics directory within JupyterLab workspace
 sudo unzip /var/spool/syna/webds/docs/asicprogrammer_html.zip -d $SYNADIR/Documentation/User_Guides/AsicProgrammer
 sudo unzip /var/spool/syna/webds/docs/touchcomm_html.zip -d $SYNADIR/Documentation/User_Guides/TouchComm
