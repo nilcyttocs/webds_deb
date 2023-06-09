@@ -25,5 +25,5 @@ webds_software_update==0.11.1
 webds_status==0.10.0
 webds_test_viewer==0.3.2
 webds_touch==0.8.2
-webds_trace_and_log==0.1.1
+webds_trace_and_log==0.1.2
 webds_tutor_initial_setup==0.4.5
