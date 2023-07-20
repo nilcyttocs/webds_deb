@@ -53,3 +53,7 @@ fi
 if [ ! -d "$STASHDIR" ]; then
   sudo mkdir -p $STASHDIR
 fi
+
+# Stop and disable systemd-timesyncd service
+systemctl is-active systemd-timesyncd > /dev/null 2>&1 && sudo systemctl stop systemd-timesyncd
+sudo systemctl disable systemd-timesyncd
