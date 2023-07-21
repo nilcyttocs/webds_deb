@@ -14,12 +14,12 @@ webds_hybrid_analog==0.1.1
 webds_integration_duration==0.6.1
 webds_launcher==0.10.1
 webds_local_dimming==0.2.0
-webds_lockdown_and_custom_serialization==0.4.0
+webds_lockdown_and_custom_serialization==0.4.1
 webds_pdnr==0.1.0
 webds_production_tests==0.10.0
-webds_ram_backdoor==0.4.0
+webds_ram_backdoor==0.4.1
 webds_readme==0.5.0
-webds_reflash==0.4.2
+webds_reflash==0.4.3
 webds_register_map==0.4.0
 webds_reprogram==0.4.3
 webds_sensor_mapping==0.4.4
